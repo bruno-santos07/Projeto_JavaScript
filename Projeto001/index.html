@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Exercício</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do Dia</h1>
+    </header>
+    <section>
+        <div id="msg">
+            aqui vai a hora
+        </div>
+        <div id="foto">
+            <img id="imagem" src="img/Dia.png" alt="Dia">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Bruno Santos</p>
+    </footer>
+    
+    <script>
+        function carregar(){
+        let msg = window.document.getElementById('msg')
+        let img = window.document.getElementById('imagem')
+        let data = new Date()
+        let hora = data.getHours()
+        let minutos = data.getMinutes()
+        msg.innerHTML = `Agora são ${hora}:${minutos}h`
+
+        if(hora >= 0 && hora < 12){
+            img.src = 'img/Dia.png'
+        }else if(hora > 12 && hora < 18){
+            img.src = 'img/tarde.png'
+        }else{
+            img.src = 'img/Noite.png'
+        }
+    }
+    </script>
+</body>
+</html>
